@@ -340,9 +340,7 @@ footer {
         h4[lang=ar] {
             display:block;
         }
-        h4[lang=de],
-        h4[lang=en],
-        h4[lang=ru] {
+        h4[lang=de], h4[lang=en], h4[lang=ru] {
             display:none;
         }
     }
@@ -412,6 +410,9 @@ footer {
     .content1 .row,
     .content2 .row,
     footer .row {
+        .col {
+            flex-basis: 50%;
+        }
         &.last-row {
             justify-content: flex-start;
             .col {
@@ -453,9 +454,7 @@ footer {
         h4[lang=ru] {
             display:block;
         }
-        h4[lang=de],
-        h4[lang=en],
-        h4[lang=ar] {
+        h4[lang=de], h4[lang=en], h4[lang=ar] {
             display:none;
         }
     }
@@ -495,6 +494,16 @@ footer {
                 border-left:none;
             }
             @include flex-fam($dir:row, $just:space-around, $align:center);
+            & > a {
+                flex-basis: 20%;
+                line-height: 2rem;
+                min-height: 2rem;
+                border:none;
+                border-left:1px solid $light-grey; 
+                margin: 1rem 0;
+                background-color: $white;
+                @include fsize-pad(1.414rem, 0 1.0rem);
+            }
         }
     }
     section {
@@ -503,10 +512,69 @@ footer {
             margin: 0 auto;
         }
         &.focal {
+            h2 {
+                font-size: 3.998rem;
+            }
             h2, p.author {
                 width: 600px; 
                 margin: 0 auto;
             }
         }
+        &.content1 h3 {
+            font-size: 2.827rem;
+            font-weight: 100;
+            .fa-2x {
+                vertical-align: middle;
+                @include fsize-pad(2.827rem, 0 1rem 0 0);
+            }
+        }
+        &.content2 {
+            h4, li {
+                font-size: 1.999rem;
+            }
+            p {
+                font-size: 1.414rem;
+            }
+        }
+    }
+    .content1 .row .col {
+        flex: 1 0 30%;
+    }
+    .content2 .row .col {
+        flex: 1 0 20%;
+    }
+    footer {
+        width: 1400px;
+        margin: 0 auto;
+        .row {
+            .col {
+                flex-basis: 50%;
+            }
+            &.last-row {
+                justify-content: flex-start;
+                .col {
+                    flex-basis: 100%;
+                }
+            }
+        }
+        p {
+            font-size: 1.414rem;
+            letter-spacing: 0.2rem;
+            &:last-child {
+                color: $light-grey;
+            }
+        }
+    }
+    .fa-circle {
+        color: $med-blue;
+    }
+    h4[lang=en]{
+       display:block; 
+    }
+    h4[lang=de], h4[lang=ar], h4[lang=ru] {
+        display:none;
+    }
+    .content1 .row, .content2 .row, footer .row {
+        @include flex-fam($dir:row, $wrap:wrap, $just:space-evenly, $align:flex-start);
     }
 }

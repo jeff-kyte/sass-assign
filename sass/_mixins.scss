@@ -6,17 +6,17 @@
 @function double($size) {
     @return $size * 2;
 }
-@mixin fsize-pad($size, $pad) {
+@mixin fsize-pad($size, $pad:null) {
     @if $size { font-size: $size; }
     @if $pad { padding: $pad; }
 }
-@mixin colors($foreG, $backG) {
+@mixin colors($foreG, $backG:null) {
     @if $foreG { color: $foreG; }
     @if $backG { background-color: $backG; }
 }
 @mixin flex-fam($flex:null, $dir:null, $flow:null, $wrap:null, $just:null, $align:null) {
-    // Allow null values in flex shorthand
-    @if length($flex) > 2 and nth($flex, 2) and nth($flex, 3) { 
+    // Allow nulls in $flex list, but still use shorthand if possible:
+    @if length($flex) > 2 and nth($flex, 1) and nth($flex, 2) and nth($flex, 3) { 
         flex:$flex;
     } @else {
         @if $flex { flex-grow:nth($flex, 1); }
