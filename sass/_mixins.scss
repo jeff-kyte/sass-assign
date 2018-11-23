@@ -10,3 +10,19 @@
     font-size: $size;
     padding: $pad;
 }
+
+@mixin breakpt-sm() {
+    @media #{$breakpoint-small} {
+        @content;
+    }
+}
+@mixin breakpt-med() {
+    @media #{$breakpoint-medium} {
+        @content;
+    }
+}
+@mixin breakpt-lg() {
+    @media #{$breakpoint-large} {
+        @content;
+    }
+}

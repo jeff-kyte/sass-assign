@@ -51,7 +51,7 @@ ul {
   border-top: 1rem solid #3a5E63;
   position: relative;
 }
-.bg-header:before, .bg-header :after {
+.bg-header:before, .bg-header:after {
   content: "";
   position: absolute;
   bottom: -1rem;
@@ -93,6 +93,21 @@ header {
   /* default min screen width */
   margin: 0 auto;
   position: relative;
+}
+@media all and (min-width:701px) and (max-width:900px) {
+  header {
+    width: 700px;
+  }
+}
+@media all and (min-width:901px) and (max-width: 1400px) {
+  header {
+    width: 900px;
+  }
+}
+@media all and (min-width:1401px) {
+  header {
+    width: 1400px;
+  }
 }
 header h1 {
   width: 100%;
@@ -147,15 +162,15 @@ header nav > a:hover {
   color: #7C593C;
 }
 
-section .focal {
+section.focal {
   width: 400px;
   /* default */
   margin: 0 auto;
 }
-section .content {
+section.content {
   padding: 2rem 0;
 }
-section .content2 {
+section.content2 {
   padding: 2rem 0;
 }
 
