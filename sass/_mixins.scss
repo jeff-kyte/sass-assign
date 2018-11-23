@@ -3,3 +3,10 @@
 /**************** MIXINS ****************/
 
 
+@function double($size) {
+    @return $size * 2;
+}
+@mixin font-size-pad($size, $pad) {
+    font-size: $size;
+    padding: $pad;
+}

@@ -23,7 +23,7 @@ dark grey   #222
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-* :after, * :before {
+*:after, * :before {
   -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
@@ -51,15 +51,19 @@ ul {
   border-top: 1rem solid #3a5E63;
   position: relative;
 }
-.bg-header :before, .bg-header :after {
+.bg-header:before, .bg-header :after {
   content: "";
   position: absolute;
   bottom: -1rem;
   height: 1rem;
   width: 30%;
   background-color: #3a5E63;
-  right: 0;
+}
+.bg-header:before {
   left: 0;
+}
+.bg-header:after {
+  right: 0;
 }
 
 .bg-focal {
@@ -130,7 +134,7 @@ header nav > a {
   text-align: center;
   text-decoration: none;
   color: #222;
-  font-size: 1, 414rem;
+  font-size: 1.414rem;
   letter-spacing: 0.25rem;
   border: 1px solid #d4d4d4;
   border-bottom: none;
@@ -138,7 +142,7 @@ header nav > a {
   line-height: 1;
   background-color: #fff;
 }
-header nav > a :hover {
+header nav > a:hover {
   font-weight: 700;
   color: #7C593C;
 }
@@ -227,6 +231,82 @@ footer .row .col:first-child {
 }
 .content2 li {
   padding: 0.5rem 2rem;
+}
+.content2 span:hover:after {
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  content: attr(data-country);
+  display: block;
+  padding: 0.2rem 1rem 0.2rem 2rem;
+  font-size: 1rem;
+  line-height: 2rem;
+  height: 2rem;
+  width: auto;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-image: url(../img/uk-icon.png);
+  background-repeat: no-repeat;
+  background-size: 1.5rem auto;
+  background-position: left center;
+}
+.content2 span [lang] {
+  position: relative;
+}
+.content2 span [lang=sv]:after {
+  background-image: url(../img/sv-icon.png);
+}
+.content2 span [lang=pt]:after {
+  background-image: url(../img/pt-icon.png);
+}
+.content2 span [lang=fr]:after {
+  background-image: url(../img/fr-icon.png);
+}
+.content2 span [lang=no]:after {
+  background-image: url(../img/no-icon.png);
+}
+.content2 span [lang=hi]:after {
+  background-image: url(../img/hi-icon.png);
+}
+.content2 span [lang=es]:after {
+  background-image: url(../img/es-icon.png);
+}
+
+footer {
+  padding: 2rem 0;
+}
+footer .row {
+  flex-basis: 100%;
+}
+footer .row > * {
+  flex-basis: 50%;
+  padding-bottom: 2rem;
+  border-left: 1px solid #3a5E63;
+  margin-bottom: 2rem;
+}
+footer .row .last-row > * {
+  flex-basis: 100%;
+}
+footer .row .col:first-child {
+  border-left: 0;
+}
+footer h4 {
+  font-size: 1.414rem;
+  padding: 0.5rem 2rem;
+  color: #7C593C;
+}
+footer h4 [lang=en], footer h4 [lang=ar], footer h4 [lang=ru] {
+  display: none;
+}
+footer p {
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  color: #222;
+}
+footer .fa-circle {
+  color: #222;
 }
 
 /*# sourceMappingURL=main.css.map */
