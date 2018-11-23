@@ -15,9 +15,14 @@
     @if $backG { background-color: $backG; }
 }
 @mixin flex-fam($flex:null, $dir:null, $flow:null, $wrap:null, $just:null, $align:null) {
-    @if nth($flex, 1) { flex-grow:nth($flex, 1); }
-    @if length($flex) > 1 { flex-shrink:nth($flex, 2); }
-    @if length($flex) > 2 { flex-basis:nth($flex, 3); }
+    // Allow null values in flex shorthand
+    @if length($flex) > 2 and nth($flex, 2) and nth($flex, 3) { 
+        flex:$flex;
+    } @else {
+        @if $flex { flex-grow:nth($flex, 1); }
+        @if length($flex) > 1 { flex-shrink:nth($flex, 2); }
+        @if length($flex) > 2 { flex-basis:nth($flex, 3); }
+    }
     @if $dir { flex-direction:$dir; }
     @if $flow { flex-flow:$flow; }
     @if $wrap { flex-wrap:$wrap; }
