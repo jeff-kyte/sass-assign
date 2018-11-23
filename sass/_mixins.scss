@@ -6,9 +6,23 @@
 @function double($size) {
     @return $size * 2;
 }
-@mixin font-size-pad($size, $pad) {
-    font-size: $size;
-    padding: $pad;
+@mixin fsize-pad($size, $pad) {
+    @if $size { font-size: $size; }
+    @if $pad { padding: $pad; }
+}
+@mixin colors($foreG, $backG) {
+    @if $foreG { color: $foreG; }
+    @if $backG { background-color: $backG; }
+}
+@mixin flex-fam($flex:null, $dir:null, $flow:null, $wrap:null, $just:null, $align:null) {
+    @if nth($flex, 1) { flex-grow:nth($flex, 1); }
+    @if length($flex) > 1 { flex-shrink:nth($flex, 2); }
+    @if length($flex) > 2 { flex-basis:nth($flex, 3); }
+    @if $dir { flex-direction:$dir; }
+    @if $flow { flex-flow:$flow; }
+    @if $wrap { flex-wrap:$wrap; }
+    @if $just { justify-content: $just; }
+    @if $align { align-items: $align; }
 }
 
 @mixin breakpt-sm() {
