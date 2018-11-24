@@ -11,16 +11,13 @@
     }
 }
 html {
-    font-size: 16px;
-    font-family: $sans-font;
-    line-height: 1.6;
-    font-weight: 400;
+    font: 400 16px/1.6 $sans-font;
 }
 h1, h2, h3, h4 {
     font-weight: 700;
     font-family: $serif-font;
 }
-ul{
+ul {
     list-style: none;
 }
 .bg-header {
@@ -59,14 +56,7 @@ ul{
 }
 
 header{
-    width: 400px; /* default min screen width */
-    
-    /*@include breakpt-med() {
-        width: 900px;
-    }
-    @include breakpt-lg() {
-        width: 1400px;
-    }*/
+    width: 400px;
     margin: 0 auto;
     position: relative;
     h1 {
@@ -100,19 +90,18 @@ header{
             flex:1 0 100%;
             text-align: center;
             text-decoration: none;
-            color: $dark-grey;
             letter-spacing: 0.25rem;
             border: 1px solid $light-grey;
             border-bottom: none;
             line-height: 1;
-            background-color: $white;
             &:hover {
                 font-weight: 700;
                 color: $dark-brown;
             }
             @include fsize-pad(1.414rem, 1rem 2rem);
+            @include colors($dark-grey, $white);
         }
-        @include flex-fam($dir:column, $just:flex-start, $align:stretch); /* mobile first */
+        @include flex-fam(column, flex-start, stretch); /* mobile first */
     }
 }
 section {
@@ -120,11 +109,8 @@ section {
         width: 400px; /* default */
         margin: 0 auto;
     }
-    &.content1 {
+    &.content1, &.content2 {
         padding: 2rem 0;
-    }
-    &.content2 {
-        padding:2rem 0;
     }
 }
 .row {
@@ -132,26 +118,7 @@ section {
     .col {
         flex-basis: 100%; /* mobile default */
     }
-    @include flex-fam($dir:column, $just:flex-start, $align:stretch);
-}
-footer {
-    padding:2rem 0;
-    .row {
-        /* mobile first */
-        @include flex-fam($wrap:nowrap, $dir:row, $just:space-around, $align:flex-start);
-        & > * {
-            flex-basis: 50%;
-            padding-bottom: 2rem;
-            border-left:1px solid $dark-blue;
-            margin-bottom: 2rem;
-        }
-        .last-row > * {
-            flex-basis: 100%;
-        }
-        .col:first-child {
-            border-left: 0;
-        }
-    }
+    @include flex-fam(column, flex-start, stretch);
 }
 .focal {
     h2 {
@@ -237,17 +204,19 @@ footer {
         }
     }
 }
+
 footer {
     padding:2rem 0;
     .row {
-        flex-basis:100%;
-        &> *{
+        /* mobile first */
+        @include flex-fam(row, space-around, flex-start, nowrap);
+        & > * {
             flex-basis: 50%;
             padding-bottom: 2rem;
-            border-left:1px solid #3a5E63;
+            border-left:1px solid $dark-blue;
             margin-bottom: 2rem;
         }
-        .last-row > *{
+        &.last-row > * {
             flex-basis: 100%;
         }
         .col:first-child {
@@ -262,9 +231,8 @@ footer {
         @include fsize-pad(1.414rem, 0.5rem 2rem);
     }
     p{
-        font-size: 1rem;
-        padding: 0.5rem 2rem;
         color: $dark-grey;
+        @include fsize-pad(1rem, 0.5rem 2rem);
     }
     .fa-circle {
         color: $dark-grey;
@@ -303,7 +271,7 @@ footer {
                 }
                 @include fsize-pad(1rem, 1rem);
             }
-            @include flex-fam($dir:row, $just:space-around, $align:center);
+            @include flex-fam(row, space-around, center);
         }
     }
     section {
@@ -317,7 +285,7 @@ footer {
             .col {
                 flex-basis: 50%;
             }
-            @include flex-fam($dir:row, $wrap:wrap, $just:center, $align:flex-start);
+            @include flex-fam(row, center, flex-start, wrap);
         }
     }
     footer {
@@ -332,7 +300,7 @@ footer {
                 unicode-bidi: bidi-override;
                 direction: rtl;
             }
-            @include flex-fam($wrap:nowrap, $dir:row, $just:space-around, $align:flex-start);
+            @include flex-fam(row, space-around, flex-start, nowrap);
         }
         .fa-circle {
             color: $med-blue;
@@ -392,7 +360,7 @@ footer {
                 }
                 @include fsize-pad(1rem, 0 1.0rem);
             }
-            @include flex-fam($dir:row, $just:space-around, $align:center);
+            @include flex-fam(row, space-around, center);
         }
     }
     section {
@@ -410,16 +378,7 @@ footer {
     .content1 .row,
     .content2 .row,
     footer .row {
-        .col {
-            flex-basis: 50%;
-        }
-        &.last-row {
-            justify-content: flex-start;
-            .col {
-                flex-basis: 100%;
-            }
-        }
-        @include flex-fam($dir:row, $wrap:wrap, $just:space-around, $align:flex-start);
+        @include flex-fam(row, space-around, flex-start, wrap);
     }
     .content1 .row .col {
         flex:1 0 33%;
@@ -448,6 +407,8 @@ footer {
         }
     }
     footer {
+        width: 900px;
+        margin: 0 auto;
         .fa-circle {
             color: $light-brown;
         }
@@ -456,6 +417,18 @@ footer {
         }
         h4[lang=de], h4[lang=en], h4[lang=ar] {
             display:none;
+        }
+        .row {
+            .col {
+                flex-basis: 50%;
+            }
+            &.last-row {
+                justify-content: flex-start;
+                .col {
+                    flex-basis: 100%;
+                }
+            }
+            @include flex-fam(row, space-around, lex-start, wrap);
         }
     }
 }
@@ -493,7 +466,7 @@ footer {
             & > a:first-child {
                 border-left:none;
             }
-            @include flex-fam($dir:row, $just:space-around, $align:center);
+            @include flex-fam(row, space-around, center);
             & > a {
                 flex-basis: 20%;
                 line-height: 2rem;
@@ -564,17 +537,17 @@ footer {
                 color: $light-grey;
             }
         }
-    }
-    .fa-circle {
-        color: $med-blue;
-    }
-    h4[lang=en]{
-       display:block; 
-    }
-    h4[lang=de], h4[lang=ar], h4[lang=ru] {
-        display:none;
+        .fa-circle {
+            color: $med-blue;
+        }
+        h4[lang=en]{
+           display:block; 
+        }
+        h4[lang=de], h4[lang=ar], h4[lang=ru] {
+            display:none;
+        }
     }
     .content1 .row, .content2 .row, footer .row {
-        @include flex-fam($dir:row, $wrap:wrap, $just:space-evenly, $align:flex-start);
+        @include flex-fam(row, space-evenly, flex-start, wrap);
     }
 }

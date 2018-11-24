@@ -14,7 +14,12 @@
     @if $foreG { color: $foreG; }
     @if $backG { background-color: $backG; }
 }
-@mixin flex-fam($flex:null, $dir:null, $flow:null, $wrap:null, $just:null, $align:null) {
+@mixin flex-fam($dir:null, $just:null, $align:null, $wrap:null, $flow:null, $flex:null) {
+    @if $dir { flex-direction:$dir; }
+    @if $flow { flex-flow:$flow; }
+    @if $wrap { flex-wrap:$wrap; }
+    @if $just { justify-content: $just; }
+    @if $align { align-items: $align; }
     // Allow nulls in $flex list, but still use shorthand if possible:
     @if length($flex) > 2 and nth($flex, 1) and nth($flex, 2) and nth($flex, 3) { 
         flex:$flex;
@@ -23,11 +28,6 @@
         @if length($flex) > 1 { flex-shrink:nth($flex, 2); }
         @if length($flex) > 2 { flex-basis:nth($flex, 3); }
     }
-    @if $dir { flex-direction:$dir; }
-    @if $flow { flex-flow:$flow; }
-    @if $wrap { flex-wrap:$wrap; }
-    @if $just { justify-content: $just; }
-    @if $align { align-items: $align; }
 }
 
 @mixin breakpt-sm() {
