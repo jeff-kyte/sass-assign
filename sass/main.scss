@@ -2,7 +2,7 @@
 @import "_mixins.scss";
 
 %width-mobile {
-    @include column-size(400px, 0 auto);
+    @include column-size($col-mobile, 0 auto);
 }
 * {
     padding:0;
@@ -243,7 +243,7 @@ footer {
 
 @include breakpt-sm() {
     %width-small {
-        @include column-size(700px, 0 auto);
+        @include column-size($col-small, 0 auto);
     }
     header {
         width: 700px;
@@ -324,10 +324,10 @@ footer {
 }
 @include breakpt-med() {
     %width-medium {
-        @include column-size(900px, 0 auto);
+        @include column-size($col-medium, 0 auto);
     }
     %width-innerMed {
-        @include column-size(600px, 0 auto);
+        @include column-size($col-innerMed, 0 auto);
     }
     header {
         @extend %width-medium;
@@ -440,7 +440,7 @@ footer {
 }
 @include breakpt-lg() {
     %width-large {
-        @include column-size(1400px, 0 auto);
+        @include column-size($col-large, 0 auto);
     }
     header {
         width: 1400px;

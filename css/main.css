@@ -360,7 +360,7 @@ footer .fa-circle {
     font-size: 1.414rem;
   }
 }
-@media all and (min-width:901px) and (max-width: 1400px) {
+@media all and (min-width:901px) and (max-width:1400px) {
   footer, section.focal, section.content1, section.content2, section footer, header {
     width: 900px;
     margin: 0 auto;
