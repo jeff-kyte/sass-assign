@@ -17,6 +17,11 @@ dark grey   #222
 /* default for whole page */
 /* serif for the headings */
 /**************** MIXINS ****************/
+section.focal, header {
+  width: 400px;
+  margin: 0 auto;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -86,8 +91,6 @@ ul {
 }
 
 header {
-  width: 400px;
-  margin: 0 auto;
   position: relative;
 }
 header h1 {
@@ -141,11 +144,6 @@ header nav > a:hover {
   color: #7C593C;
 }
 
-section.focal {
-  width: 400px;
-  /* default */
-  margin: 0 auto;
-}
 section.content1, section.content2 {
   padding: 2rem 0;
 }
@@ -279,6 +277,11 @@ footer .fa-circle {
 }
 
 @media all and (min-width:701px) and (max-width:900px) {
+  section.focal, section.content1, section.content2, section footer {
+    width: 700px;
+    margin: 0 auto;
+  }
+
   header {
     width: 700px;
     min-height: 8rem;
@@ -315,11 +318,6 @@ footer .fa-circle {
   }
   header nav > a:last-child {
     border-right: 1px solid #d4d4d4;
-  }
-
-  section.focal, section.content1, section.content2, section footer {
-    width: 700px;
-    margin: 0 auto;
   }
 
   .content2 .row {
@@ -363,10 +361,16 @@ footer .fa-circle {
   }
 }
 @media all and (min-width:901px) and (max-width: 1400px) {
-  header {
+  footer, section.focal, section.content1, section.content2, section footer, header {
     width: 900px;
     margin: 0 auto;
   }
+
+  section.focal h2, section.focal p.author {
+    width: 600px;
+    margin: 0 auto;
+  }
+
   header h1 {
     width: 100%;
     color: #3a5E63;
@@ -411,15 +415,6 @@ footer .fa-circle {
     border-left: none;
   }
 
-  section.focal, section.content1, section.content2, section footer {
-    width: 900px;
-    margin: 0 auto;
-  }
-  section.focal h2, section.focal p.author {
-    width: 600px;
-    margin: 0 auto;
-  }
-
   .content1 .row,
 .content2 .row,
 footer .row {
@@ -453,10 +448,6 @@ footer .row {
     font-weight: 400;
   }
 
-  footer {
-    width: 900px;
-    margin: 0 auto;
-  }
   footer .fa-circle {
     color: #C9A689;
   }
@@ -483,6 +474,11 @@ footer .row {
   }
 }
 @media all and (min-width:1401px) {
+  footer, section.focal, section.content1, section.content2, section footer {
+    width: 1400px;
+    margin: 0 auto;
+  }
+
   header {
     width: 1400px;
   }
@@ -533,10 +529,6 @@ footer .row {
     padding: 0 1rem;
   }
 
-  section.focal, section.content1, section.content2, section footer {
-    width: 1400px;
-    margin: 0 auto;
-  }
   section.focal h2 {
     font-size: 3.998rem;
   }
@@ -568,10 +560,6 @@ footer .row {
     flex: 1 0 20%;
   }
 
-  footer {
-    width: 1400px;
-    margin: 0 auto;
-  }
   footer .row .col {
     flex-basis: 50%;
   }

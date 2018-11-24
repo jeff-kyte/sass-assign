@@ -29,7 +29,10 @@
         @if length($flex) > 2 { flex-basis:nth($flex, 3); }
     }
 }
-
+@mixin column-size($width, $margin:null) {
+    @if $width { width: $width; }
+    @if $margin { margin: $margin; }
+}
 @mixin breakpt-sm() {
     @media #{$breakpoint-small} {
         @content;

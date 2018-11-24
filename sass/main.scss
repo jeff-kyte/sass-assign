@@ -1,5 +1,9 @@
 @import "_variables.scss";
 @import "_mixins.scss";
+
+%width-mobile {
+    @include column-size(400px, 0 auto);
+}
 * {
     padding:0;
     margin: 0;
@@ -56,8 +60,7 @@ ul {
 }
 
 header{
-    width: 400px;
-    margin: 0 auto;
+    @extend %width-mobile;
     position: relative;
     h1 {
         width: 100%;
@@ -106,8 +109,7 @@ header{
 }
 section {
     &.focal {
-        width: 400px; /* default */
-        margin: 0 auto;
+        @extend %width-mobile;
     }
     &.content1, &.content2 {
         padding: 2rem 0;
@@ -129,7 +131,7 @@ section {
         @include fsize-pad(1rem, 0.2rem 2rem 2rem);
     }
 }
-%content-plac {
+%content-fsize {
     h3, h4 {
         font-size:1.999rem;
     }
@@ -138,7 +140,7 @@ section {
     }
 }
 .content1 {
-    @extend %content-plac;
+    @extend %content-fsize;
     h3 {
         padding: 0.2rem 2rem 2rem;
         i {
@@ -151,7 +153,7 @@ section {
     }
 }
 .content2 {
-    @extend %content-plac;
+    @extend %content-fsize;
     h3 {
         padding:1rem 2rem 0.5rem;
     }
@@ -240,6 +242,9 @@ footer {
 }
 
 @include breakpt-sm() {
+    %width-small {
+        @include column-size(700px, 0 auto);
+    }
     header {
         width: 700px;
         min-height: 8rem;
@@ -276,8 +281,7 @@ footer {
     }
     section {
         &.focal, &.content1, &.content2, footer {
-            width: 700px;
-            margin: 0 auto;
+            @extend %width-small;
         }
     }
     .content2 {
@@ -319,9 +323,14 @@ footer {
     }
 }
 @include breakpt-med() {
+    %width-medium {
+        @include column-size(900px, 0 auto);
+    }
+    %width-innerMed {
+        @include column-size(600px, 0 auto);
+    }
     header {
-        width: 900px;
-        margin: 0 auto;
+        @extend %width-medium;
         h1 {
             width: 100%;
             color: $dark-blue;
@@ -365,13 +374,11 @@ footer {
     }
     section {
         &.focal, &.content1, &.content2, footer {
-            width: 900px;
-            margin: 0 auto;
+            @extend %width-medium;
         }
         &.focal {
             h2, p.author {
-                width: 600px; 
-                margin: 0 auto;
+                @extend %width-innerMed;
             }
         }
     }
@@ -407,8 +414,7 @@ footer {
         }
     }
     footer {
-        width: 900px;
-        margin: 0 auto;
+        @extend %width-medium;
         .fa-circle {
             color: $light-brown;
         }
@@ -433,6 +439,9 @@ footer {
     }
 }
 @include breakpt-lg() {
+    %width-large {
+        @include column-size(1400px, 0 auto);
+    }
     header {
         width: 1400px;
         &:before, &:after {
@@ -481,16 +490,14 @@ footer {
     }
     section {
         &.focal, &.content1, &.content2, footer {
-            width: 1400px;
-            margin: 0 auto;
+            @extend %width-large;
         }
         &.focal {
             h2 {
                 font-size: 3.998rem;
             }
             h2, p.author {
-                width: 600px; 
-                margin: 0 auto;
+                @include column-size(600px, 0 auto);
             }
         }
         &.content1 h3 {
@@ -517,8 +524,7 @@ footer {
         flex: 1 0 20%;
     }
     footer {
-        width: 1400px;
-        margin: 0 auto;
+        @extend %width-large;
         .row {
             .col {
                 flex-basis: 50%;
