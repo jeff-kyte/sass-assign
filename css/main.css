@@ -609,10 +609,6 @@ footer .row {
 }
 @media all and (min-width:901px) and (max-width:1400px) {
   header nav > a {
-    /*flex-basis: 20%;
-    line-height: 2rem;
-    border:none;
-    border-left:1px solid $light-grey;*/
     min-height: 2rem;
     margin: 1rem 0;
     background-color: #fff;
@@ -620,10 +616,6 @@ footer .row {
 }
 @media all and (min-width:1400px) {
   header nav > a {
-    /*flex-basis: 20%;
-    line-height: 2rem;
-    border:none;
-    border-left:1px solid $light-grey;*/
     min-height: 2rem;
     margin: 1rem 0;
     background-color: #fff;

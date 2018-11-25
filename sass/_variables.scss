@@ -41,6 +41,6 @@ $light-grey: #d4d4d4;
 $dark-grey: #222;
 
 $global-placeholds: ();
-$gp-origin-break: "mobile";
+$gp-origin-break: nth(map-keys($breaks), 1);
 $gp-break: $gp-origin-break;
 
