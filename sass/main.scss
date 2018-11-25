@@ -1,7 +1,8 @@
-@import "_variables.scss";
 @import "_mixins.scss";
+@import "_variables.scss";
+
 %width-mobile {
-    @include column-size($col-mobile);
+    @include column-size(map-get($breaks, "mobile"));
 }
 %content-fsize {
     h3, h4 {
@@ -10,25 +11,6 @@
     p, li {
         font-size: 1.414rem;
     }
-}
-%fa-comment {
-    display:inline;
-    vertical-align:baseline;
-    float:none;
-    font-size: 4rem;
-    line-height: $font-rem * $ln-height;
-}
-%nav-link {
-    flex-basis: 20%;
-    line-height: 2rem;
-    border:none;
-    border-left:1px solid $light-grey;
-}
-%nav-link-larger {
-    @extend %nav-link;
-    min-height: 2rem;
-    margin: 1rem 0;
-    background-color: $white;
 }
 * {
     padding:0;
@@ -256,10 +238,31 @@ footer {
         color: $dark-grey;
     }
 }
-
-@include breakpt-sm() {
+@include global_placehold(fa-comment) {
+    display:inline;
+    vertical-align:baseline;
+    float:none;
+    font-size: 4rem;
+    line-height: $font-rem * $ln-height;
+}
+@include global_placehold(nav-link) {
+    flex-basis: 20%;
+    line-height: 2rem;
+    border:none;
+    border-left:1px solid $light-grey;
+}
+@include global_placehold(nav-link-larger) {
+    flex-basis: 20%;
+    line-height: 2rem;
+    border:none;
+    border-left:1px solid $light-grey;
+    min-height: 2rem;
+    margin: 1rem 0;
+    background-color: $white;
+}
+@include breakpt("small") {
     %width-small {
-        @include column-size($col-small);
+        @include column-size(map-get($breaks, "small"));
     }
     header {
         @extend %width-small;
@@ -269,12 +272,7 @@ footer {
         }
         h1 i.fa-lg {
             color:$dark-brown;
-            //@extend %fa-comment;
-            display:inline;
-            vertical-align:baseline;
-            float:none;
-            font-size: 4rem;
-            line-height: $font-rem * $ln-height;
+            @include global_extend(fa-comment);
             & ~ span {
                 float: none;
                 letter-spacing: 0.25rem;
@@ -289,11 +287,7 @@ footer {
                 }
                 @include fsize-pad(1rem, 1rem);
                 min-height: 6rem;
-                //@extend nav-link;
-                flex-basis: 20%;
-                line-height: 2rem;
-                border:none;
-                border-left:1px solid $light-grey;
+                @include global_extend(nav-link);
             }
         }
     }
@@ -340,9 +334,9 @@ footer {
         }
     }
 }
-@include breakpt-med() {
+@include breakpt("medium") {
     %width-medium {
-        @include column-size($col-medium);
+        @include column-size(map-get($breaks, "medium"));
     }
     %width-inner-med {
         @include column-size($col-inner-med);
@@ -353,13 +347,8 @@ footer {
             width: 100%;
             color: $dark-blue;
             i.fa-lg {
-                 color: $dark-blue;
-                //@extend %fa-comment;
-                display:inline;
-                vertical-align:baseline;
-                float:none;
-                font-size: 4rem;
-                line-height: $font-rem * $ln-height;
+                color: $dark-blue;
+                @include global_extend(fa-comment);
                 & ~ span {
                     float: none;
                     letter-spacing: 0.25rem;
@@ -380,14 +369,7 @@ footer {
                     border-left:none;
                 }
                 @include fsize-pad(1rem, 0 1rem);
-                //@extend %nav-link-larger;
-                flex-basis: 20%;
-                line-height: 2rem;
-                border:none;
-                border-left:1px solid $light-grey;
-                min-height: 2rem;
-                margin: 1rem 0;
-                background-color: $white;
+                @include global_extend(nav-link-larger);
             }
             @include flex-fam(row, space-around, center);
         }
@@ -458,9 +440,9 @@ footer {
         }
     }
 }
-@include breakpt-lg() {
+@include breakpt("large") {
     %width-large {
-        @include column-size($col-large);
+        @include column-size(map-get($breaks, "large"));
     }
     header {
         @extend %width-large;
@@ -481,12 +463,7 @@ footer {
                     text-align: left;
                 }
                 color: $dark-brown;
-                //@extend %fa-comment;
-                display:inline;
-                vertical-align:baseline;
-                float:none;
-                font-size: 4rem;
-                line-height: $font-rem * $ln-height;
+                @include global_extend(fa-comment);
             }
         }
         nav {
@@ -499,14 +476,7 @@ footer {
             @include flex-fam(row, space-around, center);
             & > a {
                 @include fsize-pad(1.414rem, 0 1rem);
-                //@extend %nav-link-larger;
-                flex-basis: 20%;
-                line-height: 2rem;
-                border:none;
-                border-left:1px solid $light-grey;
-                min-height: 2rem;
-                margin: 1rem 0;
-                background-color: $white;
+                @include global_extend(nav-link-larger);
             }
         }
     }

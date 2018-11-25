@@ -18,16 +18,15 @@ dark grey   #222
 $font-rem: 3.998rem;
 $ln-height: 1.6;
 
-$col-mobile: 400px;
-$col-small: 700px;
-$col-medium: 900px;
-$col-large: 1400px;
+$breaks: (
+    "mobile": 400px,
+    "small": 700px,
+    "medium": 900px,
+    "large": 1400px
+);
+$media_strings: build_media_strings(); // Map of media query strings
 $col-inner-med: 600px;
 $col-margin: 0 auto;
-
-$breakpoint-small: 'all and (min-width:' + ($col-small + 1) + ') and (max-width:' + $col-medium + ')';
-$breakpoint-medium: 'all and (min-width:' + ($col-medium + 1) + ') and (max-width:' + $col-large + ')';
-$breakpoint-large: 'all and (min-width:' + ($col-large + 1) + ')';
 
 $sans-font: 'Josefin Sans', ‘Trebuchet MS’, Helvetica, sans-serif; /* default for whole page */
 $serif-font: Cardo, ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif; /* serif for the headings */
@@ -40,3 +39,8 @@ $light-brown: #C9A689;
 $dark-brown: #7C593C;
 $light-grey: #d4d4d4;
 $dark-grey: #222;
+
+$global-placeholds: ();
+$gp-origin-break: "mobile";
+$gp-break: $gp-origin-break;
+

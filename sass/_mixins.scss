@@ -24,18 +24,48 @@
     -webkit-box-sizing: $property;
     box-sizing: $property;
 }
-@mixin breakpt-sm() {
-    @media #{$breakpoint-small} {
+@mixin breakpt($size) {
+    $gp-break: $size !global;
+    @media #{map-get($media_strings, $size)} {
         @content;
     }
+    $gp-break: "mobile" !global;
 }
-@mixin breakpt-med() {
-    @media #{$breakpoint-medium} {
-        @content;
+@mixin global_placehold($plac_name) {
+    @if not index($global_placeholds, $plac_name) {
+        $global_placeholds: append($global_placeholds, $plac_name) !global;
+        @at-root {
+            @each $break_name, $break_string in $media_strings {
+                @media #{$break_string} {
+                    %#{$plac_name}-#{$break_name} {
+                        @content;
+                    }
+                }
+            }
+            %#{$plac_name}-#{$gp-origin-break} {
+                @content;
+            }
+        }
     }
 }
-@mixin breakpt-lg() {
-    @media #{$breakpoint-large} {
-        @content;
-    }
+@mixin global_extend($plac_name) {
+    @extend %#{$plac_name}-#{$gp-break};
 }
+@function build_media_strings() {
+    $media_strings: ();
+    $break_num: 1;
+    @each $name, $size in $breaks {
+        @if 1 < $break_num and $break_num < length($breaks) {
+            $next_size: nth(nth($breaks, $break_num + 1), 2);
+            $new_media: ($name: 'all and (min-width:' + ($size + 1) + ') and (max-width:' + $next_size + ')');
+            $media_strings: map-merge($media_strings, $new_media);
+        }
+        @if $break_num == length($breaks) {
+            $new_media: ($name: 'all and (min-width:' + $size + ')');
+            $media_strings: map-merge($media_strings, $new_media);
+        }
+        $break_num: $break_num + 1;
+    }
+    @return $media_strings;
+}
+
