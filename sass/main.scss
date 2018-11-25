@@ -33,11 +33,9 @@
 * {
     padding:0;
     margin: 0;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+    @include set-box-sizing(border-box);
     &:after,:before {
-        -webkit-box-sizing: inherit;
-        box-sizing: inherit;
+        @include set-box-sizing(inherit);
     }
 }
 html {
@@ -266,9 +264,9 @@ footer {
     header {
         @extend %width-small;
         min-height: 8rem;
-        /*&:before, &:after {
+        &:before, &:after { // Applied?
             width:230px;
-        }*/
+        }
         h1 i.fa-lg {
             color:$dark-brown;
             //@extend %fa-comment;
@@ -373,9 +371,9 @@ footer {
                 }
             }
         }
-        /*&:before, &:after {
+        &:before, &:after { // Applied?
             width:300px;
-        }*/
+        }
         nav {
             & > a {
                 &:first-child {
@@ -466,9 +464,9 @@ footer {
     }
     header {
         @extend %width-large;
-        /*&:before, &:after {
+        &:before, &:after { // Applied?
             width: 450px;
-        }*/
+        }
         h1 {
             width: 100%;
             color: $dark-brown;

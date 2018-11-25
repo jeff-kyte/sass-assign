@@ -19,6 +19,10 @@
     @if $width { width: $width; }
     @if $margin { margin: $margin; }
 }
+@mixin set-box-sizing($property) {
+    -webkit-box-sizing: $property;
+    box-sizing: $property;
+}
 @mixin breakpt-sm() {
     @media #{$breakpoint-small} {
         @content;
