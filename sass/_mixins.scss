@@ -31,13 +31,18 @@
     }
     $gp-break: "mobile" !global;
 }
-@mixin global_placehold($plac_name) {
+@mixin global_placehold($plac_name, $extends:null) {
     @if not index($global_placeholds, $plac_name) {
         $global_placeholds: append($global_placeholds, $plac_name) !global;
         @at-root {
             @each $break_name, $break_string in $media_strings {
                 @media #{$break_string} {
                     %#{$plac_name}-#{$break_name} {
+                        @if $extends {
+                            @each $extend in $extends {
+                                @extend %#{$extend}-#{$break_name};
+                            }
+                        }
                         @content;
                     }
                 }
