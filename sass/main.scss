@@ -1,7 +1,7 @@
 @import "_variables.scss";
 @import "_mixins.scss";
 %width-mobile {
-    @include column-size($col-mobile, $col-spacing);
+    @include column-size($col-mobile);
 }
 %content-fsize {
     h3, h4 {
@@ -34,7 +34,7 @@
     padding:0;
     margin: 0;
     @include set-box-sizing(border-box);
-    &:after,:before {
+    &:after,&:before {
         @include set-box-sizing(inherit);
     }
 }
@@ -259,7 +259,7 @@ footer {
 
 @include breakpt-sm() {
     %width-small {
-        @include column-size($col-small, $col-spacing);
+        @include column-size($col-small);
     }
     header {
         @extend %width-small;
@@ -342,10 +342,10 @@ footer {
 }
 @include breakpt-med() {
     %width-medium {
-        @include column-size($col-medium, $col-spacing);
+        @include column-size($col-medium);
     }
     %width-inner-med {
-        @include column-size($col-inner-med, $col-spacing);
+        @include column-size($col-inner-med);
     }
     header {
         @extend %width-medium;
@@ -460,7 +460,7 @@ footer {
 }
 @include breakpt-lg() {
     %width-large {
-        @include column-size($col-large, $col-spacing);
+        @include column-size($col-large);
     }
     header {
         @extend %width-large;
@@ -519,7 +519,7 @@ footer {
                 font-size: $font-rem;
             }
             h2, p.author {
-                @include column-size(600px, $col-spacing);
+                @include column-size($col-inner-med);
             }
         }
         &.content1 h3 {
