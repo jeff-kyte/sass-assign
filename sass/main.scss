@@ -445,6 +445,7 @@ footer {
             display:none;
         }
         .row {
+            @include flex-fam(row, space-around, flex-start, wrap);
             .col {
                 flex-basis: 50%;
             }
@@ -454,7 +455,6 @@ footer {
                     flex-basis: 100%;
                 }
             }
-            @include flex-fam(row, space-around, lex-start, wrap);
         }
     }
 }
