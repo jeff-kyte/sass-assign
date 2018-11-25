@@ -16,7 +16,7 @@
     vertical-align:baseline;
     float:none;
     font-size: 4rem;
-    line-height: 6.3968rem;
+    line-height: $font-rem * $ln-height;
 }
 %nav-link {
     flex-basis: 20%;
@@ -41,7 +41,7 @@
     }
 }
 html {
-    font: 400 16px/1.6 $sans-font;
+    font: 400 16px/#{$ln-height} $sans-font;
 }
 h1, h2, h3, h4 {
     font-weight: 700;
@@ -98,7 +98,7 @@ header {
             width: 25%;
             float:left;
             font-size: 7rem;
-            line-height: 12.7936rem;
+            line-height: 2 * $font-rem * $ln-height;
             color: $light-brown;
             & ~ span {
                 float: right;
@@ -107,7 +107,7 @@ header {
                 2 lines of 3.998 * 1.6 = 12.7936
                 **/
                 text-align: right;
-                @include fsize-pad(3.998rem, 0 0 0 1rem);
+                @include fsize-pad($font-rem, 0 0 0 1rem);
             }
         }
     }
@@ -276,7 +276,7 @@ footer {
             vertical-align:baseline;
             float:none;
             font-size: 4rem;
-            line-height: 6.3968rem;
+            line-height: $font-rem * $ln-height;
             & ~ span {
                 float: none;
                 letter-spacing: 0.25rem;
@@ -290,6 +290,7 @@ footer {
                     border-right:1px solid $light-grey;
                 }
                 @include fsize-pad(1rem, 1rem);
+                min-height: 6rem;
                 //@extend nav-link;
                 flex-basis: 20%;
                 line-height: 2rem;
@@ -360,11 +361,11 @@ footer {
                 vertical-align:baseline;
                 float:none;
                 font-size: 4rem;
-                line-height: 6.3968rem;
+                line-height: $font-rem * $ln-height;
                 & ~ span {
                     float: none;
                     letter-spacing: 0.25rem;
-                    font-size: 3.998rem;
+                    font-size: $font-rem;
                     /**
                     1 lines of 3.998 * 1.6 = 6.3968
                     **/
@@ -475,7 +476,7 @@ footer {
                 & ~ span {
                     float: none;
                     letter-spacing: 0.25rem;
-                    font-size: 3.998rem;
+                    font-size: $font-rem;
                     /**
                     1 lines of 3.998 * 1.6 = 6.3968
                     **/
@@ -487,7 +488,7 @@ footer {
                 vertical-align:baseline;
                 float:none;
                 font-size: 4rem;
-                line-height: 6.3968rem;
+                line-height: $font-rem * $ln-height;
             }
         }
         nav {
@@ -517,7 +518,7 @@ footer {
         }
         &.focal {
             h2 {
-                font-size: 3.998rem;
+                font-size: $font-rem;
             }
             h2, p.author {
                 @include column-size(600px, 0 auto);
