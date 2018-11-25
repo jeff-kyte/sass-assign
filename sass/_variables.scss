@@ -19,10 +19,10 @@ $col-mobile: 400px;
 $col-small: 700px;
 $col-medium: 900px;
 $col-large: 1400px;
+$col-inner-med: 600px;
 $breakpoint-small: 'all and (min-width:' + ($col-small + 1) + ') and (max-width:' + $col-medium + ')';
 $breakpoint-medium: 'all and (min-width:' + ($col-medium + 1) + ') and (max-width:' + $col-large + ')';
 $breakpoint-large: 'all and (min-width:' + ($col-large + 1) + ')';
-$col-innerMed: 600px;
 
 $light-blue: #C7F7FF;
 $med-blue: #89C0C9;

@@ -1,8 +1,34 @@
 @import "_variables.scss";
 @import "_mixins.scss";
-
 %width-mobile {
     @include column-size($col-mobile, 0 auto);
+}
+%content-fsize {
+    h3, h4 {
+        font-size:1.999rem;
+    }
+    p, li {
+        font-size: 1.414rem;
+    }
+}
+%fa-comment {
+    display:inline;
+    vertical-align:baseline;
+    float:none;
+    font-size: 4rem;
+    line-height: 6.3968rem;
+}
+%nav-link {
+    flex-basis: 20%;
+    line-height: 2rem;
+    border:none;
+    border-left:1px solid $light-grey;
+}
+%nav-link-larger {
+    @extend %nav-link;
+    min-height: 2rem;
+    margin: 1.0rem 0;
+    background-color: $white;
 }
 * {
     padding:0;
@@ -59,7 +85,7 @@ ul {
     @include colors($light-grey, $white);
 }
 
-header{
+header {
     @extend %width-mobile;
     position: relative;
     h1 {
@@ -117,10 +143,10 @@ section {
 }
 .row {
     display: flex;
+    @include flex-fam(column, flex-start, stretch);
     .col {
         flex-basis: 100%; /* mobile default */
     }
-    @include flex-fam(column, flex-start, stretch);
 }
 .focal {
     h2 {
@@ -129,14 +155,6 @@ section {
     }
     .author {
         @include fsize-pad(1rem, 0.2rem 2rem 2rem);
-    }
-}
-%content-fsize {
-    h3, h4 {
-        font-size:1.999rem;
-    }
-    p, li {
-        font-size: 1.414rem;
     }
 }
 .content1 {
@@ -246,14 +264,15 @@ footer {
         @include column-size($col-small, 0 auto);
     }
     header {
-        width: 700px;
+        @extend %width-small;
         min-height: 8rem;
-        &:before, &:after {
+        /*&:before, &:after {
             width:230px;
-        }
+        }*/
         h1 i.fa-lg {
-            display:inline;
             color:$dark-brown;
+            //@extend %fa-comment;
+            display:inline;
             vertical-align:baseline;
             float:none;
             font-size: 4rem;
@@ -265,18 +284,18 @@ footer {
             }
         }
         nav {
+            @include flex-fam(row, space-around, center);
             & > a {
-                flex-basis: 20%;
-                line-height: 2rem;
-                min-height: 6rem;
-                border:none;
-                border-left:1px solid #d4d4d4; 
                 &:last-child {
                     border-right:1px solid $light-grey;
                 }
                 @include fsize-pad(1rem, 1rem);
+                //@extend nav-link;
+                flex-basis: 20%;
+                line-height: 2rem;
+                border:none;
+                border-left:1px solid $light-grey;
             }
-            @include flex-fam(row, space-around, center);
         }
     }
     section {
@@ -286,14 +305,15 @@ footer {
     }
     .content2 {
         .row {
+            @include flex-fam(row, center, flex-start, wrap);
             .col {
                 flex-basis: 50%;
             }
-            @include flex-fam(row, center, flex-start, wrap);
         }
     }
     footer {
         .row  {
+            @include flex-fam(row, space-around, flex-start, nowrap);
             & > * {
                 flex-basis: 50%;
             }
@@ -304,7 +324,6 @@ footer {
                 unicode-bidi: bidi-override;
                 direction: rtl;
             }
-            @include flex-fam(row, space-around, flex-start, nowrap);
         }
         .fa-circle {
             color: $med-blue;
@@ -326,8 +345,8 @@ footer {
     %width-medium {
         @include column-size($col-medium, 0 auto);
     }
-    %width-innerMed {
-        @include column-size($col-innerMed, 0 auto);
+    %width-inner-med {
+        @include column-size($col-inner-med, 0 auto);
     }
     header {
         @extend %width-medium;
@@ -335,8 +354,9 @@ footer {
             width: 100%;
             color: $dark-blue;
             i.fa-lg {
+                 color: $dark-blue;
+                //@extend %fa-comment;
                 display:inline;
-                color: $dark-blue;
                 vertical-align:baseline;
                 float:none;
                 font-size: 4rem;
@@ -352,22 +372,23 @@ footer {
                 }
             }
         }
-        &:before, &:after {
+        /*&:before, &:after {
             width:300px;
-        }
+        }*/
         nav {
             & > a {
-                flex-basis: 20%;
-                line-height: 2rem;
-                min-height: 2rem;
-                border:none;
-                border-left:1px solid $light-grey;
-                margin: 1.0rem 0;
-                background-color: $white;
                 &:first-child {
                     border-left:none;
                 }
                 @include fsize-pad(1rem, 0 1.0rem);
+                //@extend %nav-link-larger;
+                flex-basis: 20%;
+                line-height: 2rem;
+                border:none;
+                border-left:1px solid $light-grey;
+                min-height: 2rem;
+                margin: 1.0rem 0;
+                background-color: $white;
             }
             @include flex-fam(row, space-around, center);
         }
@@ -378,7 +399,7 @@ footer {
         }
         &.focal {
             h2, p.author {
-                @extend %width-innerMed;
+                @extend %width-inner-med;
             }
         }
     }
@@ -443,20 +464,14 @@ footer {
         @include column-size($col-large, 0 auto);
     }
     header {
-        width: 1400px;
-        &:before, &:after {
-            width:450px;
-        }
+        @extend %width-large;
+        /*&:before, &:after {
+            width: 450px;
+        }*/
         h1 {
             width: 100%;
             color: $dark-brown;
             i.fa-lg {
-                display:inline;
-                color: $dark-brown;
-                vertical-align:baseline;
-                float:none;
-                font-size: 4rem;
-                line-height: 6.3968rem;
                 & ~ span {
                     float: none;
                     letter-spacing: 0.25rem;
@@ -466,6 +481,13 @@ footer {
                     **/
                     text-align: left;
                 }
+                color: $dark-brown;
+                //@extend %fa-comment;
+                display:inline;
+                vertical-align:baseline;
+                float:none;
+                font-size: 4rem;
+                line-height: 6.3968rem;
             }
         }
         nav {
@@ -477,14 +499,15 @@ footer {
             }
             @include flex-fam(row, space-around, center);
             & > a {
+                @include fsize-pad(1.414rem, 0 1.0rem);
+                //@extend %nav-link-larger;
                 flex-basis: 20%;
                 line-height: 2rem;
-                min-height: 2rem;
                 border:none;
-                border-left:1px solid $light-grey; 
-                margin: 1rem 0;
+                border-left:1px solid $light-grey;
+                min-height: 2rem;
+                margin: 1.0rem 0;
                 background-color: $white;
-                @include fsize-pad(1.414rem, 0 1.0rem);
             }
         }
     }

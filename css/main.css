@@ -22,6 +22,13 @@ section.focal, header {
   margin: 0 auto;
 }
 
+.content2 h3, .content1 h3, .content2 h4, .content1 h4 {
+  font-size: 1.999rem;
+}
+.content2 p, .content1 p, .content2 li, .content1 li {
+  font-size: 1.414rem;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -169,13 +176,6 @@ section.content1, section.content2 {
   padding: 0.2rem 2rem 2rem;
 }
 
-.content2 h3, .content1 h3, .content2 h4, .content1 h4 {
-  font-size: 1.999rem;
-}
-.content2 p, .content1 p, .content2 li, .content1 li {
-  font-size: 1.414rem;
-}
-
 .content1 h3 {
   padding: 0.2rem 2rem 2rem;
 }
@@ -243,9 +243,9 @@ footer {
 footer .row {
   /* mobile first */
   flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: space-around;
   align-items: flex-start;
+  flex-wrap: nowrap;
 }
 footer .row > * {
   flex-basis: 50%;
@@ -277,21 +277,20 @@ footer .fa-circle {
 }
 
 @media all and (min-width:701px) and (max-width:900px) {
-  section.focal, section.content1, section.content2, section footer {
+  section.focal, section.content1, section.content2, section footer, header {
     width: 700px;
     margin: 0 auto;
   }
 
   header {
-    width: 700px;
     min-height: 8rem;
-  }
-  header:before, header:after {
-    width: 230px;
+    /*&:before, &:after {
+        width:230px;
+    }*/
   }
   header h1 i.fa-lg {
-    display: inline;
     color: #7C593C;
+    display: inline;
     vertical-align: baseline;
     float: none;
     font-size: 4rem;
@@ -308,13 +307,12 @@ footer .fa-circle {
     align-items: center;
   }
   header nav > a {
-    flex-basis: 20%;
-    line-height: 2rem;
-    min-height: 6rem;
-    border: none;
-    border-left: 1px solid #d4d4d4;
     font-size: 1rem;
     padding: 1rem;
+    flex-basis: 20%;
+    line-height: 2rem;
+    border: none;
+    border-left: 1px solid #d4d4d4;
   }
   header nav > a:last-child {
     border-right: 1px solid #d4d4d4;
@@ -322,9 +320,9 @@ footer .fa-circle {
 
   .content2 .row {
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
   .content2 .row .col {
     flex-basis: 50%;
@@ -332,9 +330,9 @@ footer .fa-circle {
 
   footer .row {
     flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: space-around;
     align-items: flex-start;
+    flex-wrap: nowrap;
   }
   footer .row > * {
     flex-basis: 50%;
@@ -371,13 +369,18 @@ footer .fa-circle {
     margin: 0 auto;
   }
 
+  header {
+    /*&:before, &:after {
+        width:300px;
+    }*/
+  }
   header h1 {
     width: 100%;
     color: #3a5E63;
   }
   header h1 i.fa-lg {
-    display: inline;
     color: #3a5E63;
+    display: inline;
     vertical-align: baseline;
     float: none;
     font-size: 4rem;
@@ -392,24 +395,21 @@ footer .fa-circle {
     **/
     text-align: left;
   }
-  header:before, header:after {
-    width: 300px;
-  }
   header nav {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
   }
   header nav > a {
-    flex-basis: 20%;
-    line-height: 2rem;
-    min-height: 2rem;
-    border: none;
-    border-left: 1px solid #d4d4d4;
-    margin: 1rem 0;
-    background-color: #fff;
     font-size: 1rem;
     padding: 0 1rem;
+    flex-basis: 20%;
+    line-height: 2rem;
+    border: none;
+    border-left: 1px solid #d4d4d4;
+    min-height: 2rem;
+    margin: 1rem 0;
+    background-color: #fff;
   }
   header nav > a:first-child {
     border-left: none;
@@ -419,9 +419,9 @@ footer .fa-circle {
 .content2 .row,
 footer .row {
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
 
   .content1 .row .col {
@@ -459,9 +459,9 @@ footer .row {
   }
   footer .row {
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-around;
     align-items: lex-start;
+    flex-wrap: wrap;
   }
   footer .row .col {
     flex-basis: 50%;
@@ -474,24 +474,23 @@ footer .row {
   }
 }
 @media all and (min-width:1401px) {
-  footer, section.focal, section.content1, section.content2, section footer {
+  footer, section.focal, section.content1, section.content2, section footer, header {
     width: 1400px;
     margin: 0 auto;
   }
 
   header {
-    width: 1400px;
-  }
-  header:before, header:after {
-    width: 450px;
+    /*&:before, &:after {
+        width: 450px;
+    }*/
   }
   header h1 {
     width: 100%;
     color: #7C593C;
   }
   header h1 i.fa-lg {
-    display: inline;
     color: #7C593C;
+    display: inline;
     vertical-align: baseline;
     float: none;
     font-size: 4rem;
@@ -518,15 +517,15 @@ footer .row {
     border-left: none;
   }
   header nav > a {
-    flex-basis: 20%;
-    line-height: 2rem;
-    min-height: 2rem;
-    border: none;
-    border-left: 1px solid #d4d4d4;
-    margin: 1rem 0;
-    background-color: #fff;
     font-size: 1.414rem;
     padding: 0 1rem;
+    flex-basis: 20%;
+    line-height: 2rem;
+    border: none;
+    border-left: 1px solid #d4d4d4;
+    min-height: 2rem;
+    margin: 1rem 0;
+    background-color: #fff;
   }
 
   section.focal h2 {
@@ -588,9 +587,9 @@ footer .row {
 
   .content1 .row, .content2 .row, footer .row {
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
 }
 
