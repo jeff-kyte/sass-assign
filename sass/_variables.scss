@@ -23,6 +23,7 @@ $col-small: 700px;
 $col-medium: 900px;
 $col-large: 1400px;
 $col-inner-med: 600px;
+$col-spacing: 0 auto;
 
 $breakpoint-small: 'all and (min-width:' + ($col-small + 1) + ') and (max-width:' + $col-medium + ')';
 $breakpoint-medium: 'all and (min-width:' + ($col-medium + 1) + ') and (max-width:' + $col-large + ')';

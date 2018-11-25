@@ -1,7 +1,7 @@
 @import "_variables.scss";
 @import "_mixins.scss";
 %width-mobile {
-    @include column-size($col-mobile, 0 auto);
+    @include column-size($col-mobile, $col-spacing);
 }
 %content-fsize {
     h3, h4 {
@@ -27,7 +27,7 @@
 %nav-link-larger {
     @extend %nav-link;
     min-height: 2rem;
-    margin: 1.0rem 0;
+    margin: 1rem 0;
     background-color: $white;
 }
 * {
@@ -174,7 +174,7 @@ section {
         padding:1rem 2rem 0.5rem;
     }
     h4 {
-        padding:1rem 2rem 0rem;
+        padding:1rem 2rem 0;
         
     }
     p {
@@ -259,7 +259,7 @@ footer {
 
 @include breakpt-sm() {
     %width-small {
-        @include column-size($col-small, 0 auto);
+        @include column-size($col-small, $col-spacing);
     }
     header {
         @extend %width-small;
@@ -342,10 +342,10 @@ footer {
 }
 @include breakpt-med() {
     %width-medium {
-        @include column-size($col-medium, 0 auto);
+        @include column-size($col-medium, $col-spacing);
     }
     %width-inner-med {
-        @include column-size($col-inner-med, 0 auto);
+        @include column-size($col-inner-med, $col-spacing);
     }
     header {
         @extend %width-medium;
@@ -379,14 +379,14 @@ footer {
                 &:first-child {
                     border-left:none;
                 }
-                @include fsize-pad(1rem, 0 1.0rem);
+                @include fsize-pad(1rem, 0 1rem);
                 //@extend %nav-link-larger;
                 flex-basis: 20%;
                 line-height: 2rem;
                 border:none;
                 border-left:1px solid $light-grey;
                 min-height: 2rem;
-                margin: 1.0rem 0;
+                margin: 1rem 0;
                 background-color: $white;
             }
             @include flex-fam(row, space-around, center);
@@ -460,7 +460,7 @@ footer {
 }
 @include breakpt-lg() {
     %width-large {
-        @include column-size($col-large, 0 auto);
+        @include column-size($col-large, $col-spacing);
     }
     header {
         @extend %width-large;
@@ -491,21 +491,21 @@ footer {
         }
         nav {
             width: 100%;
-            padding: 0rem 0;
+            padding: 0 0;
             background-color: $white;
             & > a:first-child {
                 border-left:none;
             }
             @include flex-fam(row, space-around, center);
             & > a {
-                @include fsize-pad(1.414rem, 0 1.0rem);
+                @include fsize-pad(1.414rem, 0 1rem);
                 //@extend %nav-link-larger;
                 flex-basis: 20%;
                 line-height: 2rem;
                 border:none;
                 border-left:1px solid $light-grey;
                 min-height: 2rem;
-                margin: 1.0rem 0;
+                margin: 1rem 0;
                 background-color: $white;
             }
         }
@@ -519,7 +519,7 @@ footer {
                 font-size: $font-rem;
             }
             h2, p.author {
-                @include column-size(600px, 0 auto);
+                @include column-size(600px, $col-spacing);
             }
         }
         &.content1 h3 {
