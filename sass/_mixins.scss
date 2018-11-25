@@ -34,15 +34,17 @@
 @mixin global_placehold($plac_name, $extends:null) {
     @if not index($global_placeholds, $plac_name) {
         $global_placeholds: append($global_placeholds, $plac_name) !global;
-        @each $break_name, $break_string in map-merge($media_strings, ($gp-origin-break: "all")) {
-            @media #{$break_string} {
-                %#{$plac_name}-#{$break_name} {
-                    @if $extends {
-                        @each $extend in $extends {
-                            @extend %#{$extend}-#{$break_name} !optional;
+        @at-root {
+            @each $break_name, $break_string in map-merge($media_strings, ($gp-origin-break: "all")) {
+                @media #{$break_string} {
+                    %#{$plac_name}-#{$break_name} {
+                        @if $extends {
+                            @each $extend in $extends {
+                                @extend %#{$extend}-#{$break_name} !optional;
+                            }
                         }
+                        @content;
                     }
-                    @content;
                 }
             }
         }
