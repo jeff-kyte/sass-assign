@@ -238,28 +238,6 @@ footer {
         color: $dark-grey;
     }
 }
-@include global_placehold(fa-comment) {
-    display:inline;
-    vertical-align:baseline;
-    float:none;
-    font-size: 4rem;
-    line-height: $font-rem * $ln-height;
-}
-@include global_placehold(nav-link) {
-    flex-basis: 20%;
-    line-height: 2rem;
-    border:none;
-    border-left:1px solid $light-grey;
-}
-@include global_placehold(nav-link-larger) {
-    flex-basis: 20%;
-    line-height: 2rem;
-    border:none;
-    border-left:1px solid $light-grey;
-    min-height: 2rem;
-    margin: 1rem 0;
-    background-color: $white;
-}
 @include breakpt("small") {
     %width-small {
         @include column-size(map-get($breaks, "small"));
@@ -548,4 +526,26 @@ footer {
     .content1 .row, .content2 .row, footer .row {
         @include flex-fam(row, space-evenly, flex-start, wrap);
     }
+}
+@include global_placehold(fa-comment) {
+    display:inline;
+    vertical-align:baseline;
+    float:none;
+    font-size: 4rem;
+    line-height: $font-rem * $ln-height;
+}
+@include global_placehold(nav-link) {
+    flex-basis: 20%;
+    line-height: 2rem;
+    border:none;
+    border-left:1px solid $light-grey;
+}
+@include global_placehold(nav-link-larger) {
+    flex-basis: 20%;
+    line-height: 2rem;
+    border:none;
+    border-left:1px solid $light-grey;
+    min-height: 2rem;
+    margin: 1rem 0;
+    background-color: $white;
 }
