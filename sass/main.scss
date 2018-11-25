@@ -4,14 +4,6 @@
 %width-mobile {
     @include column-size(map-get($breaks, "mobile"));
 }
-%content-fsize {
-    h3, h4 {
-        font-size:1.999rem;
-    }
-    p, li {
-        font-size: 1.414rem;
-    }
-}
 * {
     padding:0;
     margin: 0;
@@ -103,12 +95,12 @@ header {
             border: 1px solid $light-grey;
             border-bottom: none;
             line-height: 1;
+            @include fsize-pad(1.414rem, 1rem 2rem);
+            @include colors($dark-grey, $white);
             &:hover {
                 font-weight: 700;
                 color: $dark-brown;
             }
-            @include fsize-pad(1.414rem, 1rem 2rem);
-            @include colors($dark-grey, $white);
         }
         @include flex-fam(column, flex-start, stretch); /* mobile first */
     }
@@ -135,6 +127,14 @@ section {
     }
     .author {
         @include fsize-pad(1rem, 0.2rem 2rem 2rem);
+    }
+}
+%content-fsize {
+    h3, h4 {
+        font-size:1.999rem;
+    }
+    p, li {
+        font-size: 1.414rem;
     }
 }
 .content1 {
@@ -245,7 +245,7 @@ footer {
     header {
         @extend %width-small;
         min-height: 8rem;
-        &:before, &:after { // Applied?
+        &:before, &:after {
             width:230px;
         }
         h1 i.fa-lg {
@@ -269,10 +269,8 @@ footer {
             }
         }
     }
-    section {
-        &.focal, &.content1, &.content2, footer {
-            @extend %width-small;
-        }
+    section.focal, section.content1, section.content2, footer {
+        @extend %width-small;
     }
     .content2 {
         .row {
@@ -338,7 +336,7 @@ footer {
                 }
             }
         }
-        &:before, &:after { // Applied?
+        &:before, &:after {
             width:300px;
         }
         nav {
@@ -424,7 +422,7 @@ footer {
     }
     header {
         @extend %width-large;
-        &:before, &:after { // Applied?
+        &:before, &:after {
             width: 450px;
         }
         h1 {

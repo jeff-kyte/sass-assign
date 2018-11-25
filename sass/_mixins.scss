@@ -34,37 +34,34 @@
 @mixin global_placehold($plac_name, $extends:null) {
     @if not index($global_placeholds, $plac_name) {
         $global_placeholds: append($global_placeholds, $plac_name) !global;
-        @each $break_name, $break_string in $media_strings {
+        @each $break_name, $break_string in map-merge($media_strings, ($gp-origin-break: "all")) {
             @media #{$break_string} {
                 %#{$plac_name}-#{$break_name} {
                     @if $extends {
                         @each $extend in $extends {
-                            @extend %#{$extend}-#{$break_name};
+                            @extend %#{$extend}-#{$break_name} !optional;
                         }
                     }
                     @content;
                 }
             }
         }
-        %#{$plac_name}-#{$gp-origin-break} {
-            @content;
-        }
     }
 }
 @mixin global_extend($plac_name) {
-    @extend %#{$plac_name}-#{$gp-break};
+    @extend %#{$plac_name}-#{$gp-break} !optional;
 }
 @function build_media_strings() {
     $media_strings: ();
     $break_num: 1;
-    @each $name, $size in $breaks {
+    @each $break_name, $size in $breaks {
         @if 1 < $break_num and $break_num < length($breaks) {
             $next_size: nth(nth($breaks, $break_num + 1), 2);
-            $new_media: ($name: 'all and (min-width:' + ($size + 1) + ') and (max-width:' + $next_size + ')');
+            $new_media: ($break_name: 'all and (min-width:' + ($size + 1) + ') and (max-width:' + $next_size + ')');
             $media_strings: map-merge($media_strings, $new_media);
         }
         @if $break_num == length($breaks) {
-            $new_media: ($name: 'all and (min-width:' + $size + ')');
+            $new_media: ($break_name: 'all and (min-width:' + $size + ')');
             $media_strings: map-merge($media_strings, $new_media);
         }
         $break_num: $break_num + 1;

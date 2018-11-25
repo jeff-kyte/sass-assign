@@ -22,13 +22,6 @@ section.focal, header {
   margin: 0 auto;
 }
 
-.content2 h3, .content1 h3, .content2 h4, .content1 h4 {
-  font-size: 1.999rem;
-}
-.content2 p, .content1 p, .content2 li, .content1 li {
-  font-size: 1.414rem;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -176,6 +169,13 @@ section.content1, section.content2 {
   padding: 0.2rem 2rem 2rem;
 }
 
+.content2 h3, .content1 h3, .content2 h4, .content1 h4 {
+  font-size: 1.999rem;
+}
+.content2 p, .content1 p, .content2 li, .content1 li {
+  font-size: 1.414rem;
+}
+
 .content1 h3 {
   padding: 0.2rem 2rem 2rem;
 }
@@ -277,7 +277,7 @@ footer .fa-circle {
 }
 
 @media all and (min-width:701px) and (max-width:900px) {
-  section.focal, section.content1, section.content2, section footer, header {
+  section.focal, section.content1, section.content2, footer, header {
     width: 700px;
     margin: 0 auto;
   }
