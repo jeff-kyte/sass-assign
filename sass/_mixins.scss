@@ -25,39 +25,29 @@
     box-sizing: $property;
 }
 @mixin breakpt($size) { // Media query mixin
-    // Assign $gp-break to benefit any global_extend() mixins included in @content:
-    $gp-break: $size !global;
-    // Create media query from string mapped to $size in $media_strings:
-    @media #{map-get($media_strings, $size)} {
-        @content;
-    }
-    // Reset $gp-break to default:
-    $gp-break: $gp-origin-break !global;
+    $gp-break: $size !global; // Assign to benefit any global_extend() mixins included in @content
+    @media #{map-get($media_strings, $size)} { @content; }
+    $gp-break: $gp-origin-break !global; // Reset $gp-break to default
 }
 // Print @content inside placeholder class for each media query, $extends optional list of classes:
+// Idea from Hugo Giraudel https://gist.github.com/HugoGiraudel/9638030
 @mixin global_placehold($plac_name, $extends:null) {
     // If placeholder name is not in the list:
     @if not index($global_placeholds, $plac_name) {
         // Append placeholder name to the list:
         $global_placeholds: append($global_placeholds, $plac_name) !global;
-        // Escape any selector nesting around mixin call:
-        @at-root {
-            // Iterate on $media_strings map - including merged default size (ie: "mobile"):
+        @at-root { // Escape any selector nesting around mixin call
+            // Iterate on $media_strings map - including merged default size (ie: ("mobile": "all")):
             @each $break_name, $break_string in map-merge($media_strings, ($gp-origin-break: "all")) {
-                // Create media query:
                 @media #{$break_string} {
                     // Create placeholder with -#{$break_name} extension (ie: "-small", "-medium", etc.):
                     %#{$plac_name}-#{$break_name} {
-                        // If $extends - list of classes to extend - was passed:
+                        @content;
                         @if $extends {
-                            // For each class name:
                             @each $extend in $extends {
-                                // Extend placeholder with -#{$break_name} extension:
                                 @extend %#{$extend}-#{$break_name} !optional;
                             }
                         }
-                        // Global placeholder class content:
-                        @content;
                     }
                 }
             }
@@ -71,8 +61,8 @@
 @function build_media_strings() { // Construct media query strings from $breaks map
     $media_strings: (); // Map to return
     $break_num: 1; // Iteration count
-    @each $break_name, $size in $breaks { // For each $name:$size pair
-        @if 1 < $break_num and $break_num < length($breaks) { // Excluding the first and last
+    @each $break_name, $size in $breaks { // For each $name:$size pair in $breaks
+        @if 1 < $break_num and $break_num < length($breaks) { // Excluding the first and last pair
             $next_size: nth(nth($breaks, $break_num + 1), 2); // Get $size of following breakpoint
             // Create new map value ($breakpoint_name:"media query string"):
             $new_media: ($break_name: 'all and (min-width:' + ($size + 1) + ') and (max-width:' + $next_size + ')');
