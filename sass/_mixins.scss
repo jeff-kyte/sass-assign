@@ -18,7 +18,7 @@
 @mixin row-width($width, $margin:null) {
     @if $width { width: $width; }
     @if $margin { margin: $margin; }
-    @else { margin: $col-margin; }
+    @else if $row-margin { margin: $row-margin; }
 }
 @mixin set-box-sizing($property) {
     -webkit-box-sizing: $property;

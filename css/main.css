@@ -336,6 +336,18 @@ footer .fa-circle {
     background-color: #fff;
   }
 }
+@media all and (min-width:901px) and (max-width:1400px) {
+  section.focal h2, section.focal p.author {
+    width: 600px;
+    margin: 0 auto;
+  }
+}
+@media all and (min-width:1400px) {
+  section.focal h2, section.focal p.author {
+    width: 600px;
+    margin: 0 auto;
+  }
+}
 @media all {
   header, section.focal {
     width: 400px;
@@ -430,11 +442,6 @@ footer .fa-circle {
   }
 }
 @media all and (min-width:901px) and (max-width:1400px) {
-  section.focal h2, section.focal p.author {
-    width: 600px;
-    margin: 0 auto;
-  }
-
   header h1 {
     width: 100%;
     color: #3a5E63;
@@ -563,10 +570,6 @@ footer .row {
 
   section.focal h2 {
     font-size: 3.998rem;
-  }
-  section.focal h2, section.focal p.author {
-    width: 600px;
-    margin: 0 auto;
   }
   section.content1 h3 {
     font-size: 2.827rem;

@@ -25,8 +25,8 @@ $breaks: (
     "large": 1400px
 );
 $media_strings: build_media_strings(); // Build map of media query strings from $breaks
-$col-inner-med: 600px;
-$col-margin: 0 auto;
+$row-inner-med: 600px;
+$row-margin: 0 auto;
 
 // Global Placeholder variables:
 $global-placeholds: (); // List of placeholder names

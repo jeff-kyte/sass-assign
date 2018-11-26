@@ -256,9 +256,12 @@ footer {
     margin: 1rem 0;
     background-color: $white;
 }
+@include global_placehold(width-inner-med) {
+    @include row-width($row-inner-med, 0 auto);
+}
 // Give each media query a width/margin placeholder based on $breaks
 // ie: %width-small { width:700px; margin:0 auto } :
-@include row_widths($spacing:0 auto);
+@include row_widths(0 auto);
 
 @include media-query("small") {
     header {
@@ -330,9 +333,6 @@ footer {
     }
 }
 @include media-query("medium") {
-    %width-inner-med {
-        @include row-width($col-inner-med);
-    }
     header {
         @extend %width-medium;
         h1 {
@@ -372,7 +372,7 @@ footer {
         }
         &.focal {
             h2, p.author {
-                @extend %width-inner-med;
+                @include global_extend(width-inner-med);
             }
         }
     }
@@ -478,7 +478,7 @@ footer {
                 font-size: $font-rem;
             }
             h2, p.author {
-                @include row-width($col-inner-med);
+                @include global_extend(width-inner-med);
             }
         }
         &.content1 h3 {
