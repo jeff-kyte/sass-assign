@@ -256,7 +256,9 @@ footer {
     margin: 1rem 0;
     background-color: $white;
 }
-@include column_sizes();
+// Give each media query a width/margin placeholder based on $breaks
+// ie: %width-small { width:700px; margin:0 auto } :
+@include row_widths($spacing:0 auto);
 
 @include media-query("small") {
     header {
@@ -329,7 +331,7 @@ footer {
 }
 @include media-query("medium") {
     %width-inner-med {
-        @include column-size($col-inner-med);
+        @include row-width($col-inner-med);
     }
     header {
         @extend %width-medium;
@@ -476,7 +478,7 @@ footer {
                 font-size: $font-rem;
             }
             h2, p.author {
-                @include column-size($col-inner-med);
+                @include row-width($col-inner-med);
             }
         }
         &.content1 h3 {

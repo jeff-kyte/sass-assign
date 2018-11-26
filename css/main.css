@@ -336,6 +336,12 @@ footer .fa-circle {
     background-color: #fff;
   }
 }
+@media all {
+  header, section.focal {
+    width: 400px;
+    margin: 0 auto;
+  }
+}
 @media all and (min-width:701px) and (max-width:900px) {
   section.focal, section.content1, section.content2, footer, header {
     width: 700px;
@@ -351,12 +357,6 @@ footer .fa-circle {
 @media all and (min-width:1400px) {
   footer, section.focal, section.content1, section.content2, section footer, header {
     width: 1400px;
-    margin: 0 auto;
-  }
-}
-@media all {
-  header, section.focal {
-    width: 400px;
     margin: 0 auto;
   }
 }

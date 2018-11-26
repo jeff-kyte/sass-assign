@@ -15,7 +15,7 @@
     @if $wrap { flex-wrap:$wrap; }
     @if $flow { flex-flow:$flow; }
 }
-@mixin column-size($width, $margin:null) {
+@mixin row-width($width, $margin:null) {
     @if $width { width: $width; }
     @if $margin { margin: $margin; }
     @else { margin: $col-margin; }
@@ -32,14 +32,11 @@
 // Print @content inside placeholder class for each media query, $extends optional list of classes:
 // Idea from Hugo Giraudel https://gist.github.com/HugoGiraudel/9638030
 @mixin global_placehold($plac_name, $extends:null) {
-    // If placeholder name is not in the list:
-    @if not index($global_placeholds, $plac_name) {
-        // Append placeholder name to the list:
-        $global_placeholds: append($global_placeholds, $plac_name) !global;
+    @if not index($global_placeholds, $plac_name) { // If placeholder name is not in the list
+        $global_placeholds: append($global_placeholds, $plac_name) !global; // Append placeholder name to the list
         @at-root { // Escape any selector nesting around mixin call
-            // Iterate on $media_strings map - including merged default size (ie: ("mobile": "all")):
-            @each $break_name, $break_string in map-merge($media_strings, ($gp-origin-break: "all")) {
-                @media #{$break_string} {
+            @each $break_name, $break_string in $media_strings { // Iterate on $media_strings map
+                @media #{$break_string} { // Create media query
                     // Create placeholder with -#{$break_name} extension (ie: "-small", "-medium", etc.):
                     %#{$plac_name}-#{$break_name} {
                         @content;
@@ -68,19 +65,23 @@
             $new_media: ($break_name: 'all and (min-width:' + ($size + 1) + ') and (max-width:' + $next_size + ')');
             $media_strings: map-merge($media_strings, $new_media); // Append new map to return values
         }
-        @if $break_num == length($breaks) { // If this is the last $name:$size pair
+        @else if $break_num == length($breaks) { // If this is the last $name:$size pair
             $new_media: ($break_name: 'all and (min-width:' + $size + ')'); // There is no max-width
             $media_strings: map-merge($media_strings, $new_media);
+        }
+        @else if $break_num == 1 { // If this is the first $name:$size pair
+            $media_strings: map-merge($media_strings, ($break_name: "all"));
         }
         $break_num: $break_num + 1;
     }
     @return $media_strings;
 }
-@mixin column_sizes() {
-    @each $break_name, $break_string in map-merge($media_strings, ($gp-origin-break: "all")) {
+// Give each media query scope it's width and spacing placeholder class:
+@mixin row_widths($spacing:null) {
+    @each $break_name, $break_string in $media_strings {
         @media #{$break_string} {
             %width-#{$break_name} {
-                @include column-size(map-get($breaks, $break_name));
+                @include row-width(map-get($breaks, $break_name), $spacing);
             }
         }
     }
