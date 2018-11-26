@@ -30,12 +30,12 @@
     $gp-break: $gp-origin-break !global; // Reset $gp-break to default
 }
 // Print @content inside placeholder class for each media query, $extends optional list of classes:
-// Idea from Hugo Giraudel https://gist.github.com/HugoGiraudel/9638030
+// Idea from Hugo Giraudel https://gist.github.com/HugoGiraudel/9638030 - with some changes
 @mixin global_placehold($plac_name, $extends:null) {
     @if not index($global_placeholds, $plac_name) { // If placeholder name is not in the list
         $global_placeholds: append($global_placeholds, $plac_name) !global; // Append placeholder name to the list
         @at-root { // Escape any selector nesting around mixin call
-            @each $break_name, $break_string in $media_strings { // Iterate on $media_strings map
+            @each $break_name, $break_string in $media_strings {
                 @media #{$break_string} { // Create media query
                     // Create placeholder with -#{$break_name} extension (ie: "-small", "-medium", etc.):
                     %#{$plac_name}-#{$break_name} {
