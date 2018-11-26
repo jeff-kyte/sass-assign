@@ -1,9 +1,6 @@
 @import "_mixins.scss";
 @import "_variables.scss";
 
-%width-mobile {
-    @include column-size(map-get($breaks, "mobile"));
-}
 * {
     padding:0;
     margin: 0;
@@ -238,10 +235,30 @@ footer {
         color: $dark-grey;
     }
 }
-@include breakpt("small") {
-    %width-small {
-        @include column-size(map-get($breaks, "small"));
-    }
+
+// ********* MIXINS ********* //
+
+@include global_placehold(fa-comment) {
+    display:inline;
+    vertical-align:baseline;
+    float:none;
+    font-size: 4rem;
+    line-height: $font-rem * $ln-height;
+}
+@include global_placehold(nav-link) {
+    flex-basis: 20%;
+    line-height: 2rem;
+    border:none;
+    border-left:1px solid $light-grey;
+}
+@include global_placehold(nav-link-larger, $extends:nav-link) {
+    min-height: 2rem;
+    margin: 1rem 0;
+    background-color: $white;
+}
+@include column_sizes();
+
+@include media-query("small") {
     header {
         @extend %width-small;
         min-height: 8rem;
@@ -310,10 +327,7 @@ footer {
         }
     }
 }
-@include breakpt("medium") {
-    %width-medium {
-        @include column-size(map-get($breaks, "medium"));
-    }
+@include media-query("medium") {
     %width-inner-med {
         @include column-size($col-inner-med);
     }
@@ -416,10 +430,7 @@ footer {
         }
     }
 }
-@include breakpt("large") {
-    %width-large {
-        @include column-size(map-get($breaks, "large"));
-    }
+@include media-query("large") {
     header {
         @extend %width-large;
         &:before, &:after {
@@ -524,22 +535,4 @@ footer {
     .content1 .row, .content2 .row, footer .row {
         @include flex-fam(row, space-evenly, flex-start, wrap);
     }
-}
-@include global_placehold(fa-comment) {
-    display:inline;
-    vertical-align:baseline;
-    float:none;
-    font-size: 4rem;
-    line-height: $font-rem * $ln-height;
-}
-@include global_placehold(nav-link) {
-    flex-basis: 20%;
-    line-height: 2rem;
-    border:none;
-    border-left:1px solid $light-grey;
-}
-@include global_placehold(nav-link-larger, $extends:nav-link) {
-    min-height: 2rem;
-    margin: 1rem 0;
-    background-color: $white;
 }

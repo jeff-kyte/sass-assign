@@ -24,7 +24,7 @@
     -webkit-box-sizing: $property;
     box-sizing: $property;
 }
-@mixin breakpt($size) { // Media query mixin
+@mixin media-query($size) { // Media query mixin
     $gp-break: $size !global; // Assign to benefit any global_extend() mixins included in @content
     @media #{map-get($media_strings, $size)} { @content; }
     $gp-break: $gp-origin-break !global; // Reset $gp-break to default
@@ -76,4 +76,12 @@
     }
     @return $media_strings;
 }
-
+@mixin column_sizes() {
+    @each $break_name, $break_string in map-merge($media_strings, ($gp-origin-break: "all")) {
+        @media #{$break_string} {
+            %width-#{$break_name} {
+                @include column-size(map-get($breaks, $break_name));
+            }
+        }
+    }
+}

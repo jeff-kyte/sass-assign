@@ -17,11 +17,6 @@ dark grey   #222
 /**************** VARIABLES ****************/
 /* default for whole page */
 /* serif for the headings */
-section.focal, header {
-  width: 400px;
-  margin: 0 auto;
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -277,11 +272,95 @@ footer .fa-circle {
 }
 
 @media all and (min-width:701px) and (max-width:900px) {
+  header h1 i.fa-lg {
+    display: inline;
+    vertical-align: baseline;
+    float: none;
+    font-size: 4rem;
+    line-height: 6.3968rem;
+  }
+}
+@media all and (min-width:901px) and (max-width:1400px) {
+  header h1 i.fa-lg {
+    display: inline;
+    vertical-align: baseline;
+    float: none;
+    font-size: 4rem;
+    line-height: 6.3968rem;
+  }
+}
+@media all and (min-width:1400px) {
+  header h1 i.fa-lg {
+    display: inline;
+    vertical-align: baseline;
+    float: none;
+    font-size: 4rem;
+    line-height: 6.3968rem;
+  }
+}
+@media all and (min-width:701px) and (max-width:900px) {
+  header nav > a {
+    flex-basis: 20%;
+    line-height: 2rem;
+    border: none;
+    border-left: 1px solid #d4d4d4;
+  }
+}
+@media all and (min-width:901px) and (max-width:1400px) {
+  header nav > a {
+    flex-basis: 20%;
+    line-height: 2rem;
+    border: none;
+    border-left: 1px solid #d4d4d4;
+  }
+}
+@media all and (min-width:1400px) {
+  header nav > a {
+    flex-basis: 20%;
+    line-height: 2rem;
+    border: none;
+    border-left: 1px solid #d4d4d4;
+  }
+}
+@media all and (min-width:901px) and (max-width:1400px) {
+  header nav > a {
+    min-height: 2rem;
+    margin: 1rem 0;
+    background-color: #fff;
+  }
+}
+@media all and (min-width:1400px) {
+  header nav > a {
+    min-height: 2rem;
+    margin: 1rem 0;
+    background-color: #fff;
+  }
+}
+@media all and (min-width:701px) and (max-width:900px) {
   section.focal, section.content1, section.content2, footer, header {
     width: 700px;
     margin: 0 auto;
   }
-
+}
+@media all and (min-width:901px) and (max-width:1400px) {
+  footer, section.focal, section.content1, section.content2, section footer, header {
+    width: 900px;
+    margin: 0 auto;
+  }
+}
+@media all and (min-width:1400px) {
+  footer, section.focal, section.content1, section.content2, section footer, header {
+    width: 1400px;
+    margin: 0 auto;
+  }
+}
+@media all {
+  header, section.focal {
+    width: 400px;
+    margin: 0 auto;
+  }
+}
+@media all and (min-width:701px) and (max-width:900px) {
   header {
     min-height: 8rem;
   }
@@ -351,11 +430,6 @@ footer .fa-circle {
   }
 }
 @media all and (min-width:901px) and (max-width:1400px) {
-  footer, section.focal, section.content1, section.content2, section footer, header {
-    width: 900px;
-    margin: 0 auto;
-  }
-
   section.focal h2, section.focal p.author {
     width: 600px;
     margin: 0 auto;
@@ -452,11 +526,6 @@ footer .row {
   }
 }
 @media all and (min-width:1400px) {
-  footer, section.focal, section.content1, section.content2, section footer, header {
-    width: 1400px;
-    margin: 0 auto;
-  }
-
   header:before, header:after {
     width: 450px;
   }
@@ -554,71 +623,6 @@ footer .row {
     justify-content: space-evenly;
     align-items: flex-start;
     flex-wrap: wrap;
-  }
-}
-@media all and (min-width:701px) and (max-width:900px) {
-  header h1 i.fa-lg {
-    display: inline;
-    vertical-align: baseline;
-    float: none;
-    font-size: 4rem;
-    line-height: 6.3968rem;
-  }
-}
-@media all and (min-width:901px) and (max-width:1400px) {
-  header h1 i.fa-lg {
-    display: inline;
-    vertical-align: baseline;
-    float: none;
-    font-size: 4rem;
-    line-height: 6.3968rem;
-  }
-}
-@media all and (min-width:1400px) {
-  header h1 i.fa-lg {
-    display: inline;
-    vertical-align: baseline;
-    float: none;
-    font-size: 4rem;
-    line-height: 6.3968rem;
-  }
-}
-@media all and (min-width:701px) and (max-width:900px) {
-  header nav > a {
-    flex-basis: 20%;
-    line-height: 2rem;
-    border: none;
-    border-left: 1px solid #d4d4d4;
-  }
-}
-@media all and (min-width:901px) and (max-width:1400px) {
-  header nav > a {
-    flex-basis: 20%;
-    line-height: 2rem;
-    border: none;
-    border-left: 1px solid #d4d4d4;
-  }
-}
-@media all and (min-width:1400px) {
-  header nav > a {
-    flex-basis: 20%;
-    line-height: 2rem;
-    border: none;
-    border-left: 1px solid #d4d4d4;
-  }
-}
-@media all and (min-width:901px) and (max-width:1400px) {
-  header nav > a {
-    min-height: 2rem;
-    margin: 1rem 0;
-    background-color: #fff;
-  }
-}
-@media all and (min-width:1400px) {
-  header nav > a {
-    min-height: 2rem;
-    margin: 1rem 0;
-    background-color: #fff;
   }
 }
 
