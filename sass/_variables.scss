@@ -12,7 +12,8 @@ dark grey   #222
 
                 DEFAULTS
 ***********************************************/
-
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
 
 /**************** VARIABLES ****************/
 $font-rem: 3.998rem;
@@ -33,8 +34,8 @@ $global-placeholds: (); // List of placeholder names
 $gp-origin-break: nth(map-keys($breaks), 1); // Default size (ie: "mobile")
 $gp-break: $gp-origin-break; // Assigned to breakpoint name preceeding @content in media query mixin
 
-$sans-font: 'Josefin Sans', ‘Trebuchet MS’, Helvetica, sans-serif; /* default for whole page */
-$serif-font: Cardo, ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif; /* serif for the headings */
+$sans-font: 'Josefin Sans', 'Trebuchet MS', Helvetica, sans-serif; /* default for whole page */
+$serif-font: Cardo, 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* serif for the headings */
 
 $light-blue: #C7F7FF;
 $med-blue: #89C0C9;
