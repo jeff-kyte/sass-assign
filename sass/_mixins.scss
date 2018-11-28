@@ -54,7 +54,7 @@
         }
     }
     @else {
-        @warn "Placeholder `#{$plac_name}` already exists.";
+        @warn 'Placeholder "#{$plac_name}" already exists.';
     }
 }
 @mixin global_extend($plac_name) {
@@ -76,7 +76,7 @@
             $media_strings: map-merge($media_strings, $new_media);
         }
         @else if $break_num == 1 { // If this is the first $name:$size pair
-            $media_strings: map-merge($media_strings, ($break_name: "all"));
+            $media_strings: map-merge($media_strings, ($break_name: 'all'));
         }
         $break_num: $break_num + 1;
     }

@@ -20,10 +20,10 @@ $font-rem: 3.998rem;
 $ln-height: 1.6;
 
 $breaks: (
-    "mobile": 400px,
-    "small": 700px,
-    "medium": 900px,
-    "large": 1400px
+    'mobile': 400px,
+    'small': 700px,
+    'medium': 900px,
+    'large': 1400px
 );
 $media_strings: build_media_strings(); // Build map of media query strings from $breaks
 $row-inner-med: 600px;
