@@ -54,8 +54,7 @@
                 }
             }
         }
-    }
-    @else {
+    } @else {
         @warn 'Placeholder "#{$plac_name}" already exists.';
     }
 }
@@ -72,12 +71,10 @@
             // Create new map value ($breakpoint_name:"media query string"):
             $new_media: ($break_name: 'all and (min-width:' + ($size + 1) + ') and (max-width:' + $next_size + ')');
             $media_strings: map-merge($media_strings, $new_media); // Append new map to return values
-        }
-        @else if $break_num == length($breaks) { // If this is the last $name:$size pair
+        } @else if $break_num == length($breaks) { // If this is the last $name:$size pair
             $new_media: ($break_name: 'all and (min-width:' + $size + ')'); // There is no max-width
             $media_strings: map-merge($media_strings, $new_media);
-        }
-        @else if $break_num == 1 { // If this is the first $name:$size pair
+        } @else if $break_num == 1 { // If this is the first $name:$size pair
             $media_strings: map-merge($media_strings, ($break_name: 'all'));
         }
         $break_num: $break_num + 1;
