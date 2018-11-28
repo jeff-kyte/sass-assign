@@ -53,6 +53,9 @@
             }
         }
     }
+    @else {
+        @warn "Placeholder `#{$plac_name}` already exists.";
+    }
 }
 @mixin global_extend($plac_name) {
     // Extend placeholder name with -#{$gp-break} extension (ie: "-small", "-medium", etc.):
