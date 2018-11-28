@@ -24,6 +24,9 @@
     -webkit-box-sizing: $property;
     box-sizing: $property;
 }
+@mixin column-size($size) {
+    flex:$size;
+}
 @mixin media-query($size) { // Media query mixin
     $gp-break: $size !global; // Assign to benefit any global_extend() mixins included in @content
     @media #{map-get($media_strings, $size)} { @content; }

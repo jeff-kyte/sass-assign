@@ -382,10 +382,10 @@ footer {
         @include flex-fam(row, space-around, flex-start, wrap);
     }
     .content1 .row .col {
-        flex:1 0 33%;
+        @include column-size(1 0 33%);
     }
     .content2 .row .col {
-        flex:1 0 25%;
+        @include column-size(1 0 25%);
     }
     section {
         &.content1 {
@@ -499,10 +499,10 @@ footer {
         }
     }
     .content1 .row .col {
-        flex: 1 0 30%;
+        @include column-size(1 0 30%);
     }
     .content2 .row .col {
-        flex: 1 0 20%;
+        @include column-size(1 0 20%);
     }
     footer {
         @extend %width-large;
